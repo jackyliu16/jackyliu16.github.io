@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>jackyliu16&#x27;s website - record</title>
+    <subtitle>Projects, ideas, technologies</subtitle>
+    <link href="https://jackyliu16.github.io/categories/record/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://jackyliu16.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2022-08-09T00:00:00+00:00</updated>
+    <id>https://jackyliu16.github.io/categories/record/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Remote Control Solution</title>
+        <published>2022-08-09T00:00:00+00:00</published>
+        <updated>2022-08-09T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://jackyliu16.github.io/blog/2022/my-remote-control-solution/" type="text/html"/>
+        <id>https://jackyliu16.github.io/blog/2022/my-remote-control-solution/</id>
+        
+        <content type="html">&lt;p&gt;Only provide &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;jackyliu16.github.io&#x2F;zh&#x2F;blog&#x2F;2022&#x2F;my-remote-control-solution&#x2F;&quot;&gt;chinese version&lt;&#x2F;a&gt; now.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

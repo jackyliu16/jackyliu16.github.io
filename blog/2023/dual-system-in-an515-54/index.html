@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NixOS and Windows dual system in AN515-55 machine - jackyliu16's website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+  <link rel="stylesheet" href="https://jackyliu16.github.io/assets/css/custom.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"><link rel="apple-touch-icon" sizes="180x180" href="https://jackyliu16.github.io/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jackyliu16.github.io/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jackyliu16.github.io/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://jackyliu16.github.io/images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://jackyliu16.github.io/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff"><link rel="canonical" href="https://jackyliu16.github.io/blog/2023/dual-system-in-an515-54/" /><link rel="alternate" type="application/atom+xml"
+        title="RSS" href="https://jackyliu16.github.io/atom.xml"
+      ><meta name="author" content="jackyliu16"><meta property="article:published_time" content='2023-03-23T23:21:00-05:00' /><meta name="keywords" content="NixOS,"><meta name="generator" content="Zola">
+  <meta property="og:title" content="NixOS and Windows dual system in AN515-55 machine" />
+  <meta property="og:url" content="https://jackyliu16.github.io/blog/2023/dual-system-in-an515-54/" /><meta property="og:site_name" content="jackyliu16's website" />
+  <meta property="og:locale" content="es_CO" />
+  <meta name="twitter:card" content="summary" /><meta name="twitter:creator" content="@gersonbdev" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K6X2LLGGLY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-K6X2LLGGLY');
+    </script>
+</head>
+<body>
+  <div class="container-fluid vh-100">
+    <div class="row h-100"><div
+    class="sidebar d-none d-lg-block col-lg-3 col-xl-2 mh-100 p-0 overflow-auto"
+  >
+    <aside class="d-flex flex-column justify-content-between h-100">
+      <div class="d-none d-md-block mb-4 pt-5 px-4 text-center">
+        <div class="sidebar-avatar mb-2 mx-auto border border-3 rounded-circle">
+          <a href="https://github.com/jackyliu16" target="_blank" rel="noopener noreferrer">
+    <img
+      src="https://jackyliu16.github.io/images/avatar.png"
+      alt="jackyliu16"
+      class="img-fluid"
+    >
+  </a>
+        </div>
+        <div class="mb-1">
+          <a
+            href="https://jackyliu16.github.io"
+            class="sidebar-title fs-5 fw-bold text-decoration-none"
+          >
+            jackyliu16's website
+          </a>
+        </div>
+        <div class="fw-light">
+          Projects, ideas, technologies
+        </div>
+      </div>
+
+      <div class="sidebar-nav list-group my-auto rounded-0 text-center"><a
+        href="https://jackyliu16.github.io/"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Main"
+      >
+        <span class="sidebar-nav-icon bi bi-house d-none fs-4"></span>
+        <span class="sidebar-nav-text d-none d-md-inline">
+          Main
+        </span>
+      </a><a
+        href="https://jackyliu16.github.io/blog/"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Blog"
+      >
+        <span class="sidebar-nav-icon bi bi-file-earmark-text d-none fs-4"></span>
+        <span class="sidebar-nav-text d-none d-md-inline">
+          Blog
+        </span>
+      </a><a
+        href="https://jackyliu16.github.io/projects/"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Projects"
+      >
+        <span class="sidebar-nav-icon bi bi-terminal d-none fs-4"></span>
+        <span class="sidebar-nav-text d-none d-md-inline">
+          Projects
+        </span>
+      </a><a
+        href="https://jackyliu16.github.io/tags"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Tags"
+      >
+        <span class="sidebar-nav-icon bi bi-bookmarks d-none fs-4"></span>
+        <span class="sidebar-nav-text d-none d-md-inline">
+          Tags
+        </span>
+      </a></div>
+
+      <div class="sidebar-social d-none d-md-block mt-4 pb-4 px-4">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-auto px-2">
+        <a
+          href="onedragon424@foxmail.com"
+          target="_blank" rel="noopener noreferrer"
+          data-bs-toggle="tooltip"
+          data-bs-title='Email'
+          class="text-decoration-none"
+        >
+          <span class="bi bi-envelope-fill"></span>
+        </a>
+      </div><div class="col-auto px-2">
+        <a
+          href="https://github.com/jackyliu16"
+          target="_blank" rel="noopener noreferrer"
+          data-bs-toggle="tooltip"
+          data-bs-title='GitHub'
+          class="text-decoration-none"
+        >
+          <span class="bi bi-github"></span>
+        </a>
+      </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div><div class="col mh-100 overflow-auto px-0"><nav
+    class="navbar navbar-expand navbar-bg-light sticky-top border-bottom"
+  >
+    <div class="container-fluid"><button
+        type="button"
+        class="btn d-block d-lg-none fs-5"
+        data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+        aria-controls="offcanvas"
+      >
+        <span class="bi bi-list"></span>
+      </button>
+      
+      <div class="col-8">
+        
+          <div class="row justify-content-center justify-content-lg-start p-2 ps-xl-3 text-center"><div class="col-auto d-none d-xl-block">
+        <a
+          href="https://jackyliu16.github.io/blog/"
+          class="text-decoration-none"
+        >
+          Blog
+        </a>
+      </div>
+      <div class="col-auto d-none d-xl-block">
+        <span class="text-secondary">
+          »
+        </span>
+      </div><div class="col-auto">
+      <span
+        class="d-inline d-sm-none text-secondary"
+        data-bs-toggle="tooltip"
+        data-bs-title="NixOS and Windows dual system in AN515-55 machine"
+      >
+        NixOS and Window…
+      </span>
+      <span
+        class="d-none d-sm-inline text-secondary"
+        data-bs-toggle="tooltip"
+        data-bs-title="NixOS and Windows dual system in AN515-55 machine"
+      >
+        NixOS and Windows dual system in AN515-5…
+      </span>
+    </div>
+  </div>
+        
+      </div>
+
+      <button
+    type="button" data-bs-toggle="modal" data-bs-target="#searchModal"
+    class="btn border border-0"
+  >
+    <span class="bi bi-search fs-5"></span>
+  </button>
+    </div>
+  </nav><div class="d-flex flex-column h-100"><main class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-11 col-lg-10 col-xxl-9">
+        <h1 class="mb-3">
+          NixOS and Windows dual system in AN515-55 machine
+        </h1>
+        <div class="row mt-3 mb-2">
+          <div class="col-auto">
+            <small class="text-muted">
+              By:
+              <a
+                href="https://github.com/jackyliu16"
+                target="_blank" rel="noopener noreferrer"
+                class="text-decoration-none"
+              >
+                jackyliu16
+              </a>
+            </small>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-auto mb-2">
+            <small class="text-muted">
+              Posted:
+              <time datetime="2023-03-23T23:21:00-05:00">
+                <a 
+                  href="#" data-bs-toggle="tooltip"
+                  data-bs-title="Thursday, March 23, 2023 11:21:00 PM -05:00"
+                  class="text-muted text-decoration-none"
+                >
+                  March 23, 2023
+                </a>
+              </time>
+            </small>
+          </div>
+          
+        </div><div class="mb-5">
+          <blockquote>
+<p>This is a tutorial of install <code>NixOS</code> and <code>Win10</code> in <code>AN515-54</code> computer.</p>
+</blockquote>
+<span id="continue-reading"></span><h4 id="reason">Reason</h4>
+<p>Author has trying to use <code>NixOS</code> as default Operating System, and BC the need of using <code>windows</code> Operating System, thus i have to install <code>windows</code> in my computer, which the <code>windows</code> performance in <code>VirtualBox</code> is awful and couldn't meet my needs.</p>
+<h4 id="current-status">Current Status</h4>
+<p>BC authors have been installed <code>NixOS</code> in Full disk. The <code>startup item</code> and others disk like <code>MSR</code>, <code>rescure</code> provide by <code>Acer</code> is gone.
+When trying to install <code>Win10</code> after install <code>NixOS</code>， it's unable to enter the installation normally just like we did in the new hard drive. Then I was guessing if it's BC some kinds of <code>bios</code> setting incorrectly and try to return it into factory settings, but the <code>bios</code> stuck --It seems to have the same situation if there is a <code>arch setup item</code>.--</p>
+<h4 id="computer-information">Computer Information</h4>
+<p>Acer Nitro AN515-55
+BIOS: v2.06
+processor: Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz (8CPUs)
+Memory: 16384 MB RAM</p>
+<p>Graphics:
+Intel(R) UHD Graphics Family
+NVIDIA GeForce GTX 1650</p>
+<h3 id="step-by-step-operation">Step By Step Operation</h3>
+<h4 id="basic-setup-of-bios">Basic Setup of BIOS</h4>
+<ol>
+<li>BIOS setup 1:
+<ol>
+<li>Keeping press the <code>F2</code> button after you press the power button to go into the BIOS.</li>
+<li>Enable <code>F12 Boot Menu</code>, Disable <code>Fast Boot</code> and <code>Secure Boot</code></li>
+</ol>
+</li>
+<li>Insert your <code>Multiboot USB</code> create by <code>Ventory</code> or others. <a rel="noopener nofollow noreferrer" target="_blank" href="https://www.uubyte.com/blog/how-to-use-ventoy-to-create-a-multiboot-usb/">1: Ventory</a> <a rel="noopener nofollow noreferrer" target="_blank" href="https://www.youtube.com/watch?v=n8dnTmHMlWU">2: YouTube::Ventory</a></li>
+<li>Install Windows first, I guess the problem when you install <code>NixOS</code> then install <code>win10</code> will failure due to the startup entry. And by the ways, if you want to install another distro, i thought you should keep enough place for you <code>linux</code> in SSD. </li>
+</ol>
+<p>Because the default <code>sata mode</code> of this compute is <code>Optane with RAID</code>, there may case a problem that the <code>linux</code> driver couldn't detect the <code>SSD</code> correctly, which you couldn't see the <code>SSD</code> driver when you using <code>sudo fdisk -l</code> or <code>gprted</code>. <strong>You have to change you SATA mode into <code>AHCI</code> to enable it</strong>. <a rel="noopener nofollow noreferrer" target="_blank" href="https://superuser.com/questions/1655079/intel-rst-makes-ssd-disappear-in-linux">3: Intel RST makes SSD disappear in Linux</a> And because the windows is installed in <code>Optane with RAID</code> mode, and only install the drivers for <code>Optane with RAID</code>, so if we change the SATA mode into <code>AHCI</code> will case a situation that we couldn't boot the <code>win10</code>. We have to use <code>safe mode</code> to let <code>win10</code> automatically install the <code>AHCI</code> drivers.</p>
+<h4 id="enable-windows-in-ahci-sata-mode">Enable Windows in AHCI SATA mode</h4>
+<ol>
+<li>Open your <code>win10</code></li>
+<li>Press the Windows logo key + R.</li>
+<li>Type <code>msconfig</code> in the Open box and then select OK. </li>
+<li>Select the Boot tab.</li>
+<li>Under Boot options, choose the Safe boot checkbox and make sure you have chosen the minimal item.</li>
+<li>Save and Reboot then continuous press the <code>F2</code> button to going to the <code>BIOS::Main</code></li>
+<li>Press <code>Ctrl + S</code> at the same times, now you should be able to see the option of <code>SATA Mode</code>, change the option into <code>AHCI</code>. <a rel="noopener nofollow noreferrer" target="_blank" href="https://community.acer.com/en/discussion/592158/switch-from-raid-to-ahci-on-acer-nitro-5-an515-54">5: Switch from RAID to AHCI on Acer Nitro 5 AN515-54</a> And Save it.</li>
+<li>Then you should be able to using <code>win10</code> in <code>safe mode</code></li>
+<li>Just repeat the action above In the opposite direction and reboot, then you should be able to boot into windows in <code>AHCI</code> mode.</li>
+</ol>
+<hr></hr>
+<p>It shouldn't have any problem if you installed the <code>NixOS</code> from the <code>Graphical ISO image</code>. <a rel="noopener nofollow noreferrer" target="_blank" href="https://nixos.org/download.html">download link</a>.</p>
+<p>When you boot up the <code>NixOS</code> after you installed it, the <code>gurb</code> should include the <code>win10</code> startup entry, if not you can try to add it manually. For others <code>linux</code> distro because the OS proper couldn't detect it correctly you should add it manually.</p>
+<pre data-lang="nix" style="background-color:#282828;color:#fdf4c1aa;" class="language-nix "><code class="language-nix" data-lang="nix"><span>  </span><span style="color:#fdf4c1;">boot</span><span style="color:#fe8019;">.</span><span style="color:#fdf4c1;">loader </span><span style="background-color:#932b1e;color:#fdf4c1;">=</span><span> {
+</span><span>    </span><span style="color:#8ec07c;">systemd-boot </span><span style="color:#fe8019;">= </span><span>{
+</span><span>      </span><span style="color:#8ec07c;">enable </span><span style="color:#fe8019;">= </span><span style="color:#d3869b;">true</span><span>;
+</span><span>      </span><span style="color:#8ec07c;">extraEntries </span><span style="color:#fe8019;">= </span><span>{
+</span><span>        </span><span style="color:#b8bb26;">&quot;UkyinUbuntu.conf&quot; </span><span style="color:#fe8019;">= </span><span style="color:#b8bb26;">&#39;&#39;
+</span><span style="color:#b8bb26;">          title UkyinUbuntu
+</span><span style="color:#b8bb26;">          efi /efi/ubuntu/shimx64.efi
+</span><span style="color:#b8bb26;">        &#39;&#39;</span><span>;
+</span><span>      };
+</span><span>    };
+</span><span>    </span><span style="color:#8ec07c;">efi</span><span>.</span><span style="color:#8ec07c;">canTouchEfiVariables </span><span style="color:#fe8019;">= </span><span style="color:#d3869b;">true</span><span>;
+</span><span>    </span><span style="color:#8ec07c;">efi</span><span>.</span><span style="color:#8ec07c;">efiSysMountPoint </span><span style="color:#fe8019;">= </span><span style="color:#b8bb26;">&quot;/boot/efi&quot;</span><span>;
+</span><span>  }</span><span style="background-color:#932b1e;color:#fdf4c1;">;</span><span>
+</span></code></pre>
+<h4 id="using-hdmi-as-display-monitor">Using HDMI as display monitor</h4>
+<p>#TODO unfinished: need to wait for the flake change finish.</p>
+<h3 id="reference">Reference</h3>
+<ol>
+<li><a rel="noopener nofollow noreferrer" target="_blank" href="https://www.uubyte.com/blog/how-to-use-ventoy-to-create-a-multiboot-usb/"> How to Use Ventoy to Create a Multiboot USB </a></li>
+<li><a rel="noopener nofollow noreferrer" target="_blank" href="https://www.youtube.com/watch?v=n8dnTmHMlWU"> How to Install Ventoy in Linux 2021 Guide </a></li>
+<li><a rel="noopener nofollow noreferrer" target="_blank" href="https://superuser.com/questions/1655079/intel-rst-makes-ssd-disappear-in-linux"> Intel RST makes SSD disappear in Linux </a></li>
+<li><a rel="noopener nofollow noreferrer" target="_blank" href="https://support.microsoft.com/en-us/windows/start-your-pc-in-safe-mode-in-windows-92c27cff-db89-8644-1ce4-b3e5e56fe234"> Start your PC in safe mode in Windows </a></li>
+<li><a rel="noopener nofollow noreferrer" target="_blank" href="https://community.acer.com/en/discussion/592158/switch-from-raid-to-ahci-on-acer-nitro-5-an515-54"> Switch from RAID to AHCI on Acer Nitro 5 AN515-54 </a></li>
+</ol>
+<h3 id="credibility-statement-and-to-do-list">credibility statement and to-do list</h3>
+<blockquote>
+<p>The following references have not been found or cannot be guaranteed to be correct </p>
+</blockquote>
+<ol>
+<li>Windows couldn't boot up from <code>AHCI</code> STAT mode is BC haven't drivers of <code>AHCI</code> mode.</li>
+</ol>
+<blockquote>
+<p>The following list hasn't been explained</p>
+</blockquote>
+<ol>
+<li>What is the reason of bios couldn't <code>load setup defaults</code>.</li>
+</ol>
+
+        </div>
+        
+          <div class="row my-1">
+            <div class="col-auto">
+              <span class="bi bi-bookmarks fs-6 me-1"></span>
+              
+    <a
+      href="https://jackyliu16.github.io/categories/tutorials/"
+      class="btn btn-taxonomy btn-sm m-1 border text-decoration-none"
+    >
+      <small>
+        tutorials
+      </small>
+    </a>
+  
+            </div>
+          </div>
+        
+        
+          <div class="row mt-1 mb-3">
+            <div class="col-auto">
+              <span class="bi bi-tags fs-6 me-1"></span>
+              
+    <a
+      href="https://jackyliu16.github.io/tags/nixos/"
+      class="btn btn-taxonomy btn-sm m-1 border text-decoration-none"
+    >
+      <small>
+        NixOS
+      </small>
+    </a>
+  
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </main><div class="container">
+    <div class="row justify-content-center mt-3 mb-4">
+      <div class="col-11 col-lg-10 col-xxl-9"></div>
+    </div>
+  </div><footer class="container-fluid mt-auto">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div class="row pt-3 pb-4 border-top">
+          <div class="col-12 col-md-6 mb-2 mb-md-0 text-center text-md-start">
+            <small class="text-secondary">
+              © 2023
+              <a 
+                href="https://github.com/jackyliu16"
+                target="_blank" rel="noopener noreferrer"
+                class="text-decoration-none"
+              >
+                jackyliu16&period;
+              </a>
+              <a
+                href="https://creativecommons.org/licenses/by/4.0/"
+                data-bs-toggle="tooltip"
+                data-bs-title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author."
+                class="text-secondary text-decoration-none"
+              >
+                Some rights reserved.
+              </a>
+            </small>
+          </div>
+          <div class="col-12 col-md-6 text-center text-md-end">
+            <small class="text-secondary">
+              Powered by
+              <a 
+                href="https://www.getzola.org/"
+                target="_blank" rel="noopener noreferrer"
+                class="text-decoration-none"
+              >
+                Zola
+              </a>
+              with
+              <a 
+                href="https://github.com/gersonbdev/ataraxia-zola"
+                target="_blank" rel="noopener noreferrer"
+                class="text-decoration-none"
+              >
+                Ataraxia
+              </a>
+              theme.
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+    <div class="offcanvas-body p-0">
+      <div class="sidebar container-fluid vh-100">
+        <div class="row h-100">
+          <div
+            class="col mh-100 px-0 overflow-auto"
+          >
+            <aside class="d-flex flex-column justify-content-between h-100">
+              <div class="mb-4 pt-5 px-3 text-center">
+                <div class="sidebar-avatar mb-2 mx-auto border border-3 rounded-circle">
+                  <a href="https://github.com/jackyliu16" target="_blank" rel="noopener noreferrer">
+    <img
+      src="https://jackyliu16.github.io/images/avatar.png"
+      alt="jackyliu16"
+      class="img-fluid"
+    >
+  </a>
+                </div>
+                <div>
+                  <a
+                    href="https://jackyliu16.github.io"
+                    class="sidebar-title fs-5 fw-bold text-decoration-none"
+                  >
+                    jackyliu16's website
+                  </a>
+                </div>
+              </div>
+
+              <div class="sidebar-nav list-group my-auto rounded-0 text-start"><a
+        href="https://jackyliu16.github.io/"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Main"
+      >
+        <span class="sidebar-nav-icon bi bi-house ms-2 me-1 fs-4"></span>
+        <span class="sidebar-nav-text">Main</span>
+      </a><a
+        href="https://jackyliu16.github.io/blog/"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Blog"
+      >
+        <span class="sidebar-nav-icon bi bi-file-earmark-text ms-2 me-1 fs-4"></span>
+        <span class="sidebar-nav-text">Blog</span>
+      </a><a
+        href="https://jackyliu16.github.io/projects/"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Projects"
+      >
+        <span class="sidebar-nav-icon bi bi-terminal ms-2 me-1 fs-4"></span>
+        <span class="sidebar-nav-text">Projects</span>
+      </a><a
+        href="https://jackyliu16.github.io/tags"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Tags"
+      >
+        <span class="sidebar-nav-icon bi bi-bookmarks ms-2 me-1 fs-4"></span>
+        <span class="sidebar-nav-text">Tags</span>
+      </a></div>
+
+              <div class="sidebar-social mt-4 pb-4 px-3">
+                <div class="container-fluid">
+                  <div class="row justify-content-center">
+                    <div class="col-auto px-2">
+        <a
+          href="onedragon424@foxmail.com"
+          target="_blank" rel="noopener noreferrer"
+          data-bs-toggle="tooltip"
+          data-bs-title='Email'
+          class="text-decoration-none"
+        >
+          <span class="bi bi-envelope-fill"></span>
+        </a>
+      </div><div class="col-auto px-2">
+        <a
+          href="https://github.com/jackyliu16"
+          target="_blank" rel="noopener noreferrer"
+          data-bs-toggle="tooltip"
+          data-bs-title='GitHub'
+          class="text-decoration-none"
+        >
+          <span class="bi bi-github"></span>
+        </a>
+      </div>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="searchModalLabel">
+          Search
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div
+          id="searchInput" role="search" 
+          class="d-flex mb-3 border rounded-5 bg-white"
+        >
+          <input
+            id="search" type="search"
+            class="form-control border border-0 rounded-5 rounded-end"
+            placeholder="Search"
+            aria-label="Search"
+          >
+          <div class="rounded-5 rounded-start py-2 ps-2 pe-3">
+            <span class="bi bi-search"></span>
+          </div>
+        </div>
+        <div class="search-results">
+          <div class="search-results__items">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src="https://jackyliu16.github.io/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+    const myModal = document.getElementById('searchModal');
+    const myInput = document.getElementById('searchInput');
+
+    myModal.addEventListener('shown.bs.modal', () => {
+      myInput.focus()
+    });
+  </script>
+  <script src="https://jackyliu16.github.io/elasticlunr.min.js"></script>
+  <script src="https://jackyliu16.github.io/search_index.en.js"></script><script src="https://jackyliu16.github.io/assets/js/search/search.js"></script>
+</body>
+</html>

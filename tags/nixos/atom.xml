@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>jackyliu16&#x27;s website - NixOS</title>
+    <subtitle>Projects, ideas, technologies</subtitle>
+    <link href="https://jackyliu16.github.io/tags/nixos/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://jackyliu16.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-03-23T23:21:00-05:00</updated>
+    <id>https://jackyliu16.github.io/tags/nixos/atom.xml</id>
+    <entry xml:lang="en">
+        <title>NixOS and Windows dual system in AN515-55 machine</title>
+        <published>2023-03-23T23:21:00-05:00</published>
+        <updated>2023-03-23T23:21:00-05:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://jackyliu16.github.io/blog/2023/dual-system-in-an515-54/" type="text/html"/>
+        <id>https://jackyliu16.github.io/blog/2023/dual-system-in-an515-54/</id>
+        
+        <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;This is a tutorial of install &lt;code&gt;NixOS&lt;&#x2F;code&gt; and &lt;code&gt;Win10&lt;&#x2F;code&gt; in &lt;code&gt;AN515-54&lt;&#x2F;code&gt; computer.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+</feed>

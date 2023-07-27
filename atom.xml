@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>jackyliu16&#x27;s website</title>
+    <subtitle>Projects, ideas, technologies</subtitle>
+    <link href="https://jackyliu16.github.io/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://jackyliu16.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-05-08T00:00:00+00:00</updated>
+    <id>https://jackyliu16.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Todo List</title>
+        <published>2023-05-08T00:00:00+00:00</published>
+        <updated>2023-05-08T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://jackyliu16.github.io/projects/todo/" type="text/html"/>
+        <id>https://jackyliu16.github.io/projects/todo/</id>
+        
+        <content type="html">&lt;h3 id=&quot;reading&quot;&gt;Reading&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;technique&quot;&gt;Technique&lt;&#x2F;h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Site Reliability Engineering: How Google Runs Production Systems 1st Edition&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Debugging Teams: Better Productivity Through Collaboration&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h4 id=&quot;others&quot;&gt;Others&lt;&#x2F;h4&gt;
+&lt;h3 id=&quot;nixos&quot;&gt;NixOS&lt;&#x2F;h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Try to use &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;divnix&#x2F;std&quot;&gt;std&lt;&#x2F;a&gt; to formatting the flake of NixOS configuration.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h3 id=&quot;nixpkgs&quot;&gt;Nixpkgs&lt;&#x2F;h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Trying to make a package for installing all &lt;code&gt;nerd-fonts&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Trying to make a package of &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rubickCenter&#x2F;rubick&quot;&gt;rubick&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Using &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;berberman&#x2F;nvfetcher&quot;&gt;nvfetcher&lt;&#x2F;a&gt; to manager VSC Extension.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h3 id=&quot;course&quot;&gt;Course&lt;&#x2F;h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+6.824&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Continue to finish &lt;code&gt;rCore&lt;&#x2F;code&gt; other chapter.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h3 id=&quot;others-1&quot;&gt;Others&lt;&#x2F;h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Trying to use a kind of GUI framework(&lt;code&gt;tarui&lt;&#x2F;code&gt;, &lt;code&gt;tur-rs&lt;&#x2F;code&gt;, &lt;code&gt;clap&lt;&#x2F;code&gt;) and &lt;code&gt;telegram-cil&lt;&#x2F;code&gt; to build up a terminal GUI application, which could meet the requirement of help user to see and sent message in terminal(accepts a variety of backends).&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>My view of things</title>
+        <published>2023-05-07T00:00:00+00:00</published>
+        <updated>2023-05-07T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://jackyliu16.github.io/blog/2023/philosophy/" type="text/html"/>
+        <id>https://jackyliu16.github.io/blog/2023/philosophy/</id>
+        
+        <content type="html"></content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>publish guideline of zola In github page</title>
+        <published>2023-04-21T00:00:00+00:00</published>
+        <updated>2023-04-21T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://jackyliu16.github.io/blog/2023/hola-mundo/" type="text/html"/>
+        <id>https://jackyliu16.github.io/blog/2023/hola-mundo/</id>
+        
+        <content type="html">&lt;blockquote&gt;
+&lt;p&gt;At the beginning of the paper, I have to suggest everyone that, you shouldn&#x27;t write a long issue in GitHub, you should write it down in your computer editor and then just paste it in GitHub, which I have a sad review that I have finish this paper but due to the network connection issue, I lost it.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;In this article, I will introduce another version of guideline of publish your Zola website in github-page(gh-page).&lt;&#x2F;p&gt;
+&lt;p&gt;Normally, there are two ways to publish the page, to generate and publish in one repository(A), or generate in repo A (private) and publish in repo B (public). I will split introduce how to configuration it both.&lt;&#x2F;p&gt;
+&lt;p&gt;Firstly, I will introduce the commonness of this method. But at the beginning, you should have created your repo, and one of your repos should be call as &lt;code&gt;&amp;lt;username&amp;gt;.github.io&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;You should follow the &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.github.com&#x2F;en&#x2F;repositories&#x2F;managing-your-repositorys-settings-and-features&#x2F;enabling-features-for-your-repository&#x2F;managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository&quot;&gt;guideline&lt;&#x2F;a&gt; to mark sure your actions&#x27; permission is being setting to &lt;code&gt;Allow all actions ...&lt;&#x2F;code&gt;, and then drag the page to bottom, &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.github.com&#x2F;en&#x2F;repositories&#x2F;managing-your-repositorys-settings-and-features&#x2F;enabling-features-for-your-repository&#x2F;managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions&quot;&gt;setting the workflow permission&lt;&#x2F;a&gt; as &lt;code&gt;read and write permission&lt;&#x2F;code&gt; in repo A, which is being called as &lt;code&gt;GITHUB_TOKEN&lt;&#x2F;code&gt;.
+&lt;em&gt;(there is no evidence to suggest that repo B should do it both, but you can do it)&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Create &lt;code&gt;.github&#x2F;workflows&#x2F;&amp;lt;what every you want&amp;gt;.yml&lt;&#x2F;code&gt; and copy bellow into it. Don&#x27;t forget to complete the &lt;code&gt;&amp;lt;&amp;gt;&lt;&#x2F;code&gt; before you commit the file.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;yaml&quot; style=&quot;background-color:#282828;color:#fdf4c1aa;&quot; class=&quot;language-yaml &quot;&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span style=&quot;font-style:italic;color:#928374;&quot;&gt;# On every push this script is executed
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d3869b;&quot;&gt;on&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b8bb26;&quot;&gt;push
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-weight:bold;color:#8ec07c;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b8bb26;&quot;&gt;Build and deploy GH Pages
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-weight:bold;color:#8ec07c;&quot;&gt;jobs&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-weight:bold;color:#8ec07c;&quot;&gt;build&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;font-weight:bold;color:#8ec07c;&quot;&gt;runs-on&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b8bb26;&quot;&gt;ubuntu-latest
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;font-weight:bold;color:#8ec07c;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b8bb26;&quot;&gt;github.ref == &amp;#39;refs&#x2F;heads&#x2F;&amp;lt;your branch name&amp;gt;&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;font-weight:bold;color:#8ec07c;&quot;&gt;steps&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;      - &lt;&#x2F;span&gt;&lt;span style=&quot;font-weight:bold;color:#8ec07c;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b8bb26;&quot;&gt;checkout
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;font-weight:bold;color:#8ec07c;&quot;&gt;uses&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b8bb26;&quot;&gt;actions&#x2F;checkout@v3.0.0
+&lt;&#x2F;span&gt;&lt;span&gt;      - &lt;&#x2F;span&gt;&lt;span style=&quot;font-weight:bold;color:#8ec07c;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b8bb26;&quot;&gt;build_and_deploy
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;font-weight:bold;color:#8ec07c;&quot;&gt;uses&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b8bb26;&quot;&gt;shalzz&#x2F;zola-deploy-action@v0.17.2
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;font-weight:bold;color:#8ec07c;&quot;&gt;env&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#928374;&quot;&gt;# Target branch
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;font-weight:bold;color:#8ec07c;&quot;&gt;PAGES_BRANCH&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b8bb26;&quot;&gt;gh-pages
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b8bb26;&quot;&gt;&amp;lt;TOKEN&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And then, here is the &lt;strong&gt;different part&lt;&#x2F;strong&gt; of this two method:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;For single repo user, you should set &lt;code&gt;TOKEN&lt;&#x2F;code&gt; as &lt;code&gt;TOKEN: ${{ secrets.GITHUB_TOKEN }}&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;for AB repo user
+&lt;ol&gt;
+&lt;li&gt;You should set &lt;code&gt;TOKEN&lt;&#x2F;code&gt; as &lt;code&gt;TOKEN: ${{ secrets.PUBLIC_TOKEN }}&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;You should get the &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.github.com&#x2F;en&#x2F;authentication&#x2F;keeping-your-account-and-data-secure&#x2F;creating-a-personal-access-token#personal-access-tokens-classic&quot;&gt;Personal Access Token&lt;&#x2F;a&gt; and &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.github.com&#x2F;en&#x2F;actions&#x2F;security-guides&#x2F;encrypted-secrets#creating-encrypted-secrets-for-a-repository&quot;&gt;set it as a repo secret&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;At the end, please make sure all the &lt;code&gt;&amp;lt;&amp;gt;&lt;&#x2F;code&gt; has been full. You should start to push your blog to check if the GitHub page could successfully deploy it.
+When the deployment is successes, then you could go to your &lt;code&gt;&amp;lt;username&amp;gt;.github.io&lt;&#x2F;code&gt; repo, it should have a kind of gh-page branch. And then, going to the settings, 
+&lt;code&gt;code and automation -&amp;gt; pages -&amp;gt; Build and deployment&lt;&#x2F;code&gt; setting Source as &lt;code&gt;Deploy from a branch&lt;&#x2F;code&gt; and branch for &lt;code&gt;gh-pages&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>NixOS and Windows dual system in AN515-55 machine</title>
+        <published>2023-03-23T23:21:00-05:00</published>
+        <updated>2023-03-23T23:21:00-05:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://jackyliu16.github.io/blog/2023/dual-system-in-an515-54/" type="text/html"/>
+        <id>https://jackyliu16.github.io/blog/2023/dual-system-in-an515-54/</id>
+        
+        <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;This is a tutorial of install &lt;code&gt;NixOS&lt;&#x2F;code&gt; and &lt;code&gt;Win10&lt;&#x2F;code&gt; in &lt;code&gt;AN515-54&lt;&#x2F;code&gt; computer.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Remote Control Solution</title>
+        <published>2022-08-09T00:00:00+00:00</published>
+        <updated>2022-08-09T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://jackyliu16.github.io/blog/2022/my-remote-control-solution/" type="text/html"/>
+        <id>https://jackyliu16.github.io/blog/2022/my-remote-control-solution/</id>
+        
+        <content type="html">&lt;p&gt;Only provide &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;jackyliu16.github.io&#x2F;zh&#x2F;blog&#x2F;2022&#x2F;my-remote-control-solution&#x2F;&quot;&gt;chinese version&lt;&#x2F;a&gt; now.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

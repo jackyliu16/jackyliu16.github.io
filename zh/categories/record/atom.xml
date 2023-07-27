@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh">
+    <title>刘某人的记录小站 - record</title>
+    <subtitle>项目，意见，技术等</subtitle>
+    <link href="https://jackyliu16.github.io/zh/categories/record/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://jackyliu16.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2022-08-09T00:00:00+00:00</updated>
+    <id>https://jackyliu16.github.io/zh/categories/record/atom.xml</id>
+    <entry xml:lang="zh">
+        <title>远程控制方案分享</title>
+        <published>2022-08-09T00:00:00+00:00</published>
+        <updated>2022-08-09T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://jackyliu16.github.io/zh/blog/2022/my-remote-control-solution/" type="text/html"/>
+        <id>https://jackyliu16.github.io/zh/blog/2022/my-remote-control-solution/</id>
+        
+        <content type="html">&lt;blockquote&gt;
+&lt;p&gt;我常会带着被称为“锻炼神器”的游戏本去上课，后来我逐渐厌倦了，想尝试一些新的方案，比如说通过相对较小的终端对于笔记本进行远程控制，其中走了不少弯路，也尝试了一点新的东西，现在简单分享一下我的解决方案供大家参考。&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;这样如果大家遇到与我类似的情况，可以至少快速的解决一些问题。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;xu-qiu-miao-shu&quot;&gt;需求描述&lt;&#x2F;h3&gt;
+&lt;p&gt;能够从终端电脑（相对较轻，但是不支持内核虚拟化，无法使用 WSL 和虚拟机）操作服务端电脑的 WSL 进行代码编写与调试操作。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;bei-jing-jie-shao&quot;&gt;背景介绍&lt;&#x2F;h3&gt;
+&lt;p&gt;我现在使用的终端电脑是&lt;code&gt;matebook-E-2019（win11）&lt;&#x2F;code&gt;，对应的服务端电脑是&lt;code&gt;Acer-暗影骑士擎&lt;&#x2F;code&gt;
+其中终端电脑相对较为特殊，是&lt;code&gt;Snapdragon(TM)850&lt;&#x2F;code&gt;+&lt;code&gt;armwin10&lt;&#x2F;code&gt;的电脑，我后期根据&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;yinchaow&#x2F;Install_Windows_11_On_Huawei_MateBook_E_2019&quot;&gt;install win11 in matebook-e-2019&lt;&#x2F;a&gt;的操作，实现了系统升级（升级成为了 win11）【因为听说 win11 对于触摸的支持更好】，但是这不是重点...&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;die-dai-jing-li-jie-shao&quot;&gt;迭代经历介绍&lt;&#x2F;h3&gt;
+&lt;p&gt;开始的时候，我主要尝试的方案是通过类似于&lt;code&gt;ToDesk&lt;&#x2F;code&gt;或者&lt;code&gt;parsec&lt;&#x2F;code&gt;的方式实现从终端电脑操作服务端电脑的操作，但是后来发现这种方案相对来说受到网络波动的影响较大，同时也更有可能出现操作延迟的情况，手感相对来说没有那么好。&lt;&#x2F;p&gt;
+&lt;p&gt;因此尝试使用一种更新的方案，就比如说通过&lt;code&gt;ssh&lt;&#x2F;code&gt;远程进行链接的操作，这时候我就遇到了另外一个问题，在大多数情况下我被分配的&lt;code&gt;ip&lt;&#x2F;code&gt;地址都不是&lt;code&gt;ipv4&lt;&#x2F;code&gt;公网地址，而是通过运营商或者校园网服务提供商进行转发的，这也就意味着&lt;strong&gt;没有办法实现两台机子中的直连操作&lt;&#x2F;strong&gt; &lt;em&gt;理论上可以向电信提供商申请浮动公网&lt;code&gt;ip&lt;&#x2F;code&gt;地址，将服务端电脑放在家中，但是我没有尝试，因为我想要我的服务端电脑尽可能的距离我较近，方便在出现故障的时候进行排除&lt;&#x2F;em&gt;。&lt;&#x2F;p&gt;
+&lt;p&gt;于是我开始尝试通过内网穿透来实现&lt;code&gt;ssh&lt;&#x2F;code&gt;连接的操作，首先尝试的是&lt;code&gt;zerotier&lt;&#x2F;code&gt;，但是他在我的终端电脑中&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;zerotier&#x2F;ZeroTierOne&#x2F;issues&#x2F;1724&quot;&gt;无法&lt;&#x2F;a&gt;创建对应的虚拟网卡以加入网络，经过逐步&lt;code&gt;debug&lt;&#x2F;code&gt;翻阅对应的&lt;code&gt;docs&lt;&#x2F;code&gt;和&lt;code&gt;STFW&lt;&#x2F;code&gt;发现这是由于&lt;code&gt;zerotier&lt;&#x2F;code&gt;没有提供&lt;code&gt;arm&lt;&#x2F;code&gt;电脑中的某些驱动引起的，遂尝试别的提供内网穿透的服务，就比如说&lt;code&gt;natapp&lt;&#x2F;code&gt;，经过我的测试，实际上可以使用他们提供的免费隧道服务，来实现正常的编程需求的（经过我的测试，一个月至少可以有 1G[我只测试到这]的流量，基本足够使用）&lt;&#x2F;p&gt;
+&lt;p&gt;具体如何使用&lt;code&gt;natapp&lt;&#x2F;code&gt;在 wsl 中配置对应的服务端可以见&lt;code&gt;natapp&lt;&#x2F;code&gt;的一分钟文档，相对来说比较简单，在终端电脑这边也只需要简单的下载&lt;code&gt;vscode&lt;&#x2F;code&gt;以及&lt;code&gt;ssh remote&lt;&#x2F;code&gt;等几个插件，就可以实现从&lt;code&gt;vscode&lt;&#x2F;code&gt;中远程到&lt;code&gt;WSL&lt;&#x2F;code&gt;中进行编程操作。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在登陆的过程中，可能会面临每次登录都需要手动输入密码的情况，此时可以通过在终端电脑中手动生成&lt;code&gt;ssh&lt;&#x2F;code&gt;密钥，并将&lt;code&gt;id_rsa.pub&lt;&#x2F;code&gt;中的内容添加到服务端电脑的&lt;code&gt;~&#x2F;.ssh&#x2F;authorized_keys&lt;&#x2F;code&gt;文件中
+&lt;code&gt;vscode&lt;&#x2F;code&gt; &lt;code&gt;ssh config&lt;&#x2F;code&gt;文件书写方式：&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;pre data-lang=&quot;config&quot; style=&quot;background-color:#282828;color:#fdf4c1aa;&quot; class=&quot;language-config &quot;&gt;&lt;code class=&quot;language-config&quot; data-lang=&quot;config&quot;&gt;&lt;span style=&quot;color:#fdf4c1;&quot;&gt;Host &lt;&#x2F;span&gt;&lt;span&gt;free                                          [此链接的名称（随便设）]
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdf4c1;&quot;&gt;HostName &lt;&#x2F;span&gt;&lt;span&gt;server&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fe8019;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;natappfree&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fe8019;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;cc    [这个地方由官网提供给你]
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdf4c1;&quot;&gt;User &lt;&#x2F;span&gt;&lt;span&gt;jacky                                      [这个是你要登录的用户名]
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdf4c1;&quot;&gt;Port &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d3869b;&quot;&gt;46635&lt;&#x2F;span&gt;&lt;span&gt;                                     [在服务端电脑执行`&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fe8019;&quot;&gt;.&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;natapp`程序之后第三行显示的端口号]
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdf4c1;&quot;&gt;IdentityFile &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b8bb26;&quot;&gt;&amp;quot;C:\Users\jacky\.ssh\id_rsa&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;[你的终端电脑`ssh`公钥的放置位置]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;总体来说可以相对较好的通过&lt;code&gt;vscode&lt;&#x2F;code&gt;+&lt;code&gt;natapp&lt;&#x2F;code&gt;实现内网穿透+&lt;code&gt;WSL&lt;&#x2F;code&gt;远程操作，但是如果诸位使用的不是&lt;code&gt;ARM&lt;&#x2F;code&gt;笔记本电脑，可以尝试使用&lt;code&gt;zerotier&lt;&#x2F;code&gt;提供的内网穿透服务（免费）&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原因在于&lt;code&gt;natapp&lt;&#x2F;code&gt;的免费隧道提供的是每天自动切换转发端口的形式，每天都要改动&lt;code&gt;ssh config&lt;&#x2F;code&gt;文件中的&lt;code&gt;port&lt;&#x2F;code&gt;，在远程情况下不太方便*(可能需要通过&lt;code&gt;todesk&lt;&#x2F;code&gt;或者其他远程桌面控制软件访问对应桌面，来手动打开终端中的&lt;code&gt;natapp&lt;&#x2F;code&gt;软件，查看其分配给你的端口号)*
+因此可能在使用&lt;code&gt;natapp&lt;&#x2F;code&gt;的时候需要通过购买付费隧道，实现端口固定，外加上服务端电脑&lt;code&gt;WSL&lt;&#x2F;code&gt;终端常年不关。&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;远程桌面控制软件：&lt;code&gt;todesk&lt;&#x2F;code&gt;，&lt;code&gt;parsec&lt;&#x2F;code&gt;，&lt;code&gt;rustdesk&lt;&#x2F;code&gt;
+内网穿透提供软件：&lt;code&gt;zerotier&lt;&#x2F;code&gt;，&lt;code&gt;natapp&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;注：群里的同志反应&lt;code&gt;todesk&lt;&#x2F;code&gt;可能存在&lt;code&gt;0day&lt;&#x2F;code&gt;漏洞，请诸位谨慎使用，同时推荐了&lt;code&gt;rustdesk&lt;&#x2F;code&gt;。&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

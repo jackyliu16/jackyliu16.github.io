@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>远程控制方案分享 - 刘某人的记录小站</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+  <link rel="stylesheet" href="https://jackyliu16.github.io/assets/css/custom.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"><link rel="apple-touch-icon" sizes="180x180" href="https://jackyliu16.github.io/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jackyliu16.github.io/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jackyliu16.github.io/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://jackyliu16.github.io/images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://jackyliu16.github.io/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff"><link rel="canonical" href="https://jackyliu16.github.io/zh/blog/2022/my-remote-control-solution/" /><link rel="alternate" type="application/atom+xml"
+        title="RSS" href="https://jackyliu16.github.io/atom.xml"
+      ><meta name="author" content="jackyliu16"><meta property="article:published_time" content='2022-08-09' /><meta name="generator" content="Zola">
+  <meta property="og:title" content="远程控制方案分享" />
+  <meta property="og:url" content="https://jackyliu16.github.io/zh/blog/2022/my-remote-control-solution/" /><meta property="og:site_name" content="刘某人的记录小站" />
+  <meta property="og:locale" content="es_CO" />
+  <meta name="twitter:card" content="summary" /><meta name="twitter:creator" content="@gersonbdev" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K6X2LLGGLY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-K6X2LLGGLY');
+    </script>
+</head>
+<body>
+  <div class="container-fluid vh-100">
+    <div class="row h-100"><div
+    class="sidebar d-none d-lg-block col-lg-3 col-xl-2 mh-100 p-0 overflow-auto"
+  >
+    <aside class="d-flex flex-column justify-content-between h-100">
+      <div class="d-none d-md-block mb-4 pt-5 px-4 text-center">
+        <div class="sidebar-avatar mb-2 mx-auto border border-3 rounded-circle">
+          <a href="https://github.com/jackyliu16" target="_blank" rel="noopener noreferrer">
+    <img
+      src="https://jackyliu16.github.io/images/avatar.png"
+      alt="jackyliu16"
+      class="img-fluid"
+    >
+  </a>
+        </div>
+        <div class="mb-1">
+          <a
+            href="https://jackyliu16.github.io"
+            class="sidebar-title fs-5 fw-bold text-decoration-none"
+          >
+            刘某人的记录小站
+          </a>
+        </div>
+        <div class="fw-light">
+          项目，意见，技术等
+        </div>
+      </div>
+
+      <div class="sidebar-nav list-group my-auto rounded-0 text-center"><a
+        href="https://jackyliu16.github.io/"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Main"
+      >
+        <span class="sidebar-nav-icon bi bi-house d-none fs-4"></span>
+        <span class="sidebar-nav-text d-none d-md-inline">
+          Main
+        </span>
+      </a><a
+        href="https://jackyliu16.github.io/blog/"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Blog"
+      >
+        <span class="sidebar-nav-icon bi bi-file-earmark-text d-none fs-4"></span>
+        <span class="sidebar-nav-text d-none d-md-inline">
+          Blog
+        </span>
+      </a><a
+        href="https://jackyliu16.github.io/projects/"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Projects"
+      >
+        <span class="sidebar-nav-icon bi bi-terminal d-none fs-4"></span>
+        <span class="sidebar-nav-text d-none d-md-inline">
+          Projects
+        </span>
+      </a><a
+        href="https://jackyliu16.github.io/tags"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Tags"
+      >
+        <span class="sidebar-nav-icon bi bi-bookmarks d-none fs-4"></span>
+        <span class="sidebar-nav-text d-none d-md-inline">
+          Tags
+        </span>
+      </a></div>
+
+      <div class="sidebar-social d-none d-md-block mt-4 pb-4 px-4">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-auto px-2">
+        <a
+          href="onedragon424@foxmail.com"
+          target="_blank" rel="noopener noreferrer"
+          data-bs-toggle="tooltip"
+          data-bs-title='Email'
+          class="text-decoration-none"
+        >
+          <span class="bi bi-envelope-fill"></span>
+        </a>
+      </div><div class="col-auto px-2">
+        <a
+          href="https://github.com/jackyliu16"
+          target="_blank" rel="noopener noreferrer"
+          data-bs-toggle="tooltip"
+          data-bs-title='GitHub'
+          class="text-decoration-none"
+        >
+          <span class="bi bi-github"></span>
+        </a>
+      </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div><div class="col mh-100 overflow-auto px-0"><nav
+    class="navbar navbar-expand navbar-bg-light sticky-top border-bottom"
+  >
+    <div class="container-fluid"><button
+        type="button"
+        class="btn d-block d-lg-none fs-5"
+        data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+        aria-controls="offcanvas"
+      >
+        <span class="bi bi-list"></span>
+      </button>
+      
+      <div class="col-8">
+        
+          <div class="row justify-content-center justify-content-lg-start p-2 ps-xl-3 text-center"><div class="col-auto d-none d-xl-block">
+        <a
+          href="https://jackyliu16.github.io/zh/blog/"
+          class="text-decoration-none"
+        >
+          Blog
+        </a>
+      </div>
+      <div class="col-auto d-none d-xl-block">
+        <span class="text-secondary">
+          »
+        </span>
+      </div><div class="col-auto">
+      <span
+        class="d-inline d-sm-none text-secondary"
+        data-bs-toggle="tooltip"
+        data-bs-title="远程控制方案分享"
+      >
+        远程控制方案分享
+      </span>
+      <span
+        class="d-none d-sm-inline text-secondary"
+        data-bs-toggle="tooltip"
+        data-bs-title="远程控制方案分享"
+      >
+        远程控制方案分享
+      </span>
+    </div>
+  </div>
+        
+      </div>
+
+      <button
+    type="button" data-bs-toggle="modal" data-bs-target="#searchModal"
+    class="btn border border-0"
+  >
+    <span class="bi bi-search fs-5"></span>
+  </button>
+    </div>
+  </nav><div class="d-flex flex-column h-100"><main class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-11 col-lg-10 col-xxl-9">
+        <h1 class="mb-3">
+          远程控制方案分享
+        </h1>
+        <div class="row mt-3 mb-2">
+          <div class="col-auto">
+            <small class="text-muted">
+              By:
+              <a
+                href="https://github.com/jackyliu16"
+                target="_blank" rel="noopener noreferrer"
+                class="text-decoration-none"
+              >
+                jackyliu16
+              </a>
+            </small>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-auto mb-2">
+            <small class="text-muted">
+              Posted:
+              <time datetime="2022-08-09">
+                <a 
+                  href="#" data-bs-toggle="tooltip"
+                  data-bs-title="Tuesday, August 09, 2022 12:00:00 AM UTC"
+                  class="text-muted text-decoration-none"
+                >
+                  August 09, 2022
+                </a>
+              </time>
+            </small>
+          </div>
+          
+        </div><div class="mb-5">
+          <blockquote>
+<p>我常会带着被称为“锻炼神器”的游戏本去上课，后来我逐渐厌倦了，想尝试一些新的方案，比如说通过相对较小的终端对于笔记本进行远程控制，其中走了不少弯路，也尝试了一点新的东西，现在简单分享一下我的解决方案供大家参考。</p>
+</blockquote>
+<p>这样如果大家遇到与我类似的情况，可以至少快速的解决一些问题。</p>
+<h3 id="xu-qiu-miao-shu">需求描述</h3>
+<p>能够从终端电脑（相对较轻，但是不支持内核虚拟化，无法使用 WSL 和虚拟机）操作服务端电脑的 WSL 进行代码编写与调试操作。</p>
+<h3 id="bei-jing-jie-shao">背景介绍</h3>
+<p>我现在使用的终端电脑是<code>matebook-E-2019（win11）</code>，对应的服务端电脑是<code>Acer-暗影骑士擎</code>
+其中终端电脑相对较为特殊，是<code>Snapdragon(TM)850</code>+<code>armwin10</code>的电脑，我后期根据<a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/yinchaow/Install_Windows_11_On_Huawei_MateBook_E_2019">install win11 in matebook-e-2019</a>的操作，实现了系统升级（升级成为了 win11）【因为听说 win11 对于触摸的支持更好】，但是这不是重点...</p>
+<h3 id="die-dai-jing-li-jie-shao">迭代经历介绍</h3>
+<p>开始的时候，我主要尝试的方案是通过类似于<code>ToDesk</code>或者<code>parsec</code>的方式实现从终端电脑操作服务端电脑的操作，但是后来发现这种方案相对来说受到网络波动的影响较大，同时也更有可能出现操作延迟的情况，手感相对来说没有那么好。</p>
+<p>因此尝试使用一种更新的方案，就比如说通过<code>ssh</code>远程进行链接的操作，这时候我就遇到了另外一个问题，在大多数情况下我被分配的<code>ip</code>地址都不是<code>ipv4</code>公网地址，而是通过运营商或者校园网服务提供商进行转发的，这也就意味着<strong>没有办法实现两台机子中的直连操作</strong> <em>理论上可以向电信提供商申请浮动公网<code>ip</code>地址，将服务端电脑放在家中，但是我没有尝试，因为我想要我的服务端电脑尽可能的距离我较近，方便在出现故障的时候进行排除</em>。</p>
+<p>于是我开始尝试通过内网穿透来实现<code>ssh</code>连接的操作，首先尝试的是<code>zerotier</code>，但是他在我的终端电脑中<a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/zerotier/ZeroTierOne/issues/1724">无法</a>创建对应的虚拟网卡以加入网络，经过逐步<code>debug</code>翻阅对应的<code>docs</code>和<code>STFW</code>发现这是由于<code>zerotier</code>没有提供<code>arm</code>电脑中的某些驱动引起的，遂尝试别的提供内网穿透的服务，就比如说<code>natapp</code>，经过我的测试，实际上可以使用他们提供的免费隧道服务，来实现正常的编程需求的（经过我的测试，一个月至少可以有 1G[我只测试到这]的流量，基本足够使用）</p>
+<p>具体如何使用<code>natapp</code>在 wsl 中配置对应的服务端可以见<code>natapp</code>的一分钟文档，相对来说比较简单，在终端电脑这边也只需要简单的下载<code>vscode</code>以及<code>ssh remote</code>等几个插件，就可以实现从<code>vscode</code>中远程到<code>WSL</code>中进行编程操作。</p>
+<blockquote>
+<p>在登陆的过程中，可能会面临每次登录都需要手动输入密码的情况，此时可以通过在终端电脑中手动生成<code>ssh</code>密钥，并将<code>id_rsa.pub</code>中的内容添加到服务端电脑的<code>~/.ssh/authorized_keys</code>文件中
+<code>vscode</code> <code>ssh config</code>文件书写方式：</p>
+</blockquote>
+<pre data-lang="config" style="background-color:#282828;color:#fdf4c1aa;" class="language-config "><code class="language-config" data-lang="config"><span style="color:#fdf4c1;">Host </span><span>free                                          [此链接的名称（随便设）]
+</span><span>  </span><span style="color:#fdf4c1;">HostName </span><span>server</span><span style="color:#fe8019;">.</span><span>natappfree</span><span style="color:#fe8019;">.</span><span>cc    [这个地方由官网提供给你]
+</span><span>  </span><span style="color:#fdf4c1;">User </span><span>jacky                                      [这个是你要登录的用户名]
+</span><span>  </span><span style="color:#fdf4c1;">Port </span><span style="color:#d3869b;">46635</span><span>                                     [在服务端电脑执行`</span><span style="color:#fe8019;">./</span><span>natapp`程序之后第三行显示的端口号]
+</span><span>  </span><span style="color:#fdf4c1;">IdentityFile </span><span style="color:#b8bb26;">&quot;C:\Users\jacky\.ssh\id_rsa&quot;</span><span>[你的终端电脑`ssh`公钥的放置位置]
+</span></code></pre>
+<p>总体来说可以相对较好的通过<code>vscode</code>+<code>natapp</code>实现内网穿透+<code>WSL</code>远程操作，但是如果诸位使用的不是<code>ARM</code>笔记本电脑，可以尝试使用<code>zerotier</code>提供的内网穿透服务（免费）</p>
+<blockquote>
+<p>原因在于<code>natapp</code>的免费隧道提供的是每天自动切换转发端口的形式，每天都要改动<code>ssh config</code>文件中的<code>port</code>，在远程情况下不太方便*(可能需要通过<code>todesk</code>或者其他远程桌面控制软件访问对应桌面，来手动打开终端中的<code>natapp</code>软件，查看其分配给你的端口号)*
+因此可能在使用<code>natapp</code>的时候需要通过购买付费隧道，实现端口固定，外加上服务端电脑<code>WSL</code>终端常年不关。</p>
+</blockquote>
+<p>远程桌面控制软件：<code>todesk</code>，<code>parsec</code>，<code>rustdesk</code>
+内网穿透提供软件：<code>zerotier</code>，<code>natapp</code></p>
+<p><em>注：群里的同志反应<code>todesk</code>可能存在<code>0day</code>漏洞，请诸位谨慎使用，同时推荐了<code>rustdesk</code>。</em></p>
+
+        </div>
+        
+          <div class="row my-1">
+            <div class="col-auto">
+              <span class="bi bi-bookmarks fs-6 me-1"></span>
+              
+    <a
+      href="https://jackyliu16.github.io/categories/record/"
+      class="btn btn-taxonomy btn-sm m-1 border text-decoration-none"
+    >
+      <small>
+        record
+      </small>
+    </a>
+  
+            </div>
+          </div>
+        
+        
+      </div>
+    </div>
+  </main><div class="container">
+    <div class="row justify-content-center mt-3 mb-4">
+      <div class="col-11 col-lg-10 col-xxl-9"></div>
+    </div>
+  </div><footer class="container-fluid mt-auto">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div class="row pt-3 pb-4 border-top">
+          <div class="col-12 col-md-6 mb-2 mb-md-0 text-center text-md-start">
+            <small class="text-secondary">
+              © 2023
+              <a 
+                href="https://github.com/jackyliu16"
+                target="_blank" rel="noopener noreferrer"
+                class="text-decoration-none"
+              >
+                jackyliu16&period;
+              </a>
+              <a
+                href="https://creativecommons.org/licenses/by/4.0/"
+                data-bs-toggle="tooltip"
+                data-bs-title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author."
+                class="text-secondary text-decoration-none"
+              >
+                Some rights reserved.
+              </a>
+            </small>
+          </div>
+          <div class="col-12 col-md-6 text-center text-md-end">
+            <small class="text-secondary">
+              Powered by
+              <a 
+                href="https://www.getzola.org/"
+                target="_blank" rel="noopener noreferrer"
+                class="text-decoration-none"
+              >
+                Zola
+              </a>
+              with
+              <a 
+                href="https://github.com/gersonbdev/ataraxia-zola"
+                target="_blank" rel="noopener noreferrer"
+                class="text-decoration-none"
+              >
+                Ataraxia
+              </a>
+              theme.
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+    <div class="offcanvas-body p-0">
+      <div class="sidebar container-fluid vh-100">
+        <div class="row h-100">
+          <div
+            class="col mh-100 px-0 overflow-auto"
+          >
+            <aside class="d-flex flex-column justify-content-between h-100">
+              <div class="mb-4 pt-5 px-3 text-center">
+                <div class="sidebar-avatar mb-2 mx-auto border border-3 rounded-circle">
+                  <a href="https://github.com/jackyliu16" target="_blank" rel="noopener noreferrer">
+    <img
+      src="https://jackyliu16.github.io/images/avatar.png"
+      alt="jackyliu16"
+      class="img-fluid"
+    >
+  </a>
+                </div>
+                <div>
+                  <a
+                    href="https://jackyliu16.github.io"
+                    class="sidebar-title fs-5 fw-bold text-decoration-none"
+                  >
+                    刘某人的记录小站
+                  </a>
+                </div>
+              </div>
+
+              <div class="sidebar-nav list-group my-auto rounded-0 text-start"><a
+        href="https://jackyliu16.github.io/"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Main"
+      >
+        <span class="sidebar-nav-icon bi bi-house ms-2 me-1 fs-4"></span>
+        <span class="sidebar-nav-text">Main</span>
+      </a><a
+        href="https://jackyliu16.github.io/blog/"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Blog"
+      >
+        <span class="sidebar-nav-icon bi bi-file-earmark-text ms-2 me-1 fs-4"></span>
+        <span class="sidebar-nav-text">Blog</span>
+      </a><a
+        href="https://jackyliu16.github.io/projects/"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Projects"
+      >
+        <span class="sidebar-nav-icon bi bi-terminal ms-2 me-1 fs-4"></span>
+        <span class="sidebar-nav-text">Projects</span>
+      </a><a
+        href="https://jackyliu16.github.io/tags"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="Tags"
+      >
+        <span class="sidebar-nav-icon bi bi-bookmarks ms-2 me-1 fs-4"></span>
+        <span class="sidebar-nav-text">Tags</span>
+      </a></div>
+
+              <div class="sidebar-social mt-4 pb-4 px-3">
+                <div class="container-fluid">
+                  <div class="row justify-content-center">
+                    <div class="col-auto px-2">
+        <a
+          href="onedragon424@foxmail.com"
+          target="_blank" rel="noopener noreferrer"
+          data-bs-toggle="tooltip"
+          data-bs-title='Email'
+          class="text-decoration-none"
+        >
+          <span class="bi bi-envelope-fill"></span>
+        </a>
+      </div><div class="col-auto px-2">
+        <a
+          href="https://github.com/jackyliu16"
+          target="_blank" rel="noopener noreferrer"
+          data-bs-toggle="tooltip"
+          data-bs-title='GitHub'
+          class="text-decoration-none"
+        >
+          <span class="bi bi-github"></span>
+        </a>
+      </div>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="searchModalLabel">
+          Search
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div
+          id="searchInput" role="search" 
+          class="d-flex mb-3 border rounded-5 bg-white"
+        >
+          <input
+            id="search" type="search"
+            class="form-control border border-0 rounded-5 rounded-end"
+            placeholder="Search"
+            aria-label="Search"
+          >
+          <div class="rounded-5 rounded-start py-2 ps-2 pe-3">
+            <span class="bi bi-search"></span>
+          </div>
+        </div>
+        <div class="search-results">
+          <div class="search-results__items">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src="https://jackyliu16.github.io/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+    const myModal = document.getElementById('searchModal');
+    const myInput = document.getElementById('searchInput');
+
+    myModal.addEventListener('shown.bs.modal', () => {
+      myInput.focus()
+    });
+  </script>
+  <script src="https://jackyliu16.github.io/elasticlunr.min.js"></script>
+  <script src="https://jackyliu16.github.io/search_index.en.js"></script><script src="https://jackyliu16.github.io/assets/js/search/search.js"></script>
+</body>
+</html>
